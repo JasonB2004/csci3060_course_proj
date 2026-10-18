@@ -5,7 +5,7 @@ Team: Jason Badwal, <partner name>
 | Phase | Due | Folder |
 |---|---|---|
 | 1. Front End Requirements (tests) | Oct 2 | `phase1/` |
-| 2. Front End Rapid Prototype | Oct 19 | |
+| 2. Front End Rapid Prototype | Oct 19 | `phase2/` |
 | 3. Front End Requirements Testing | Nov 6 | |
 | 4. Back End Rapid Prototype | Nov 20 | |
 | 5. Back End Unit Testing | Nov 30 | |
