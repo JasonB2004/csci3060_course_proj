@@ -1,6 +1,5 @@
 # Builds the Front End into ./frontend
-# Usage:  make         build (only recompiles files that changed)
-#         make clean   delete everything the build made
+
 
 CXX      = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra
@@ -10,14 +9,16 @@ SRC_DIR   = src
 BUILD_DIR = build
 TARGET    = frontend
 
+# every .cpp, found automattically
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
+# src/User.cpp -> build/User.o
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
 
-# Link all object files into the program
+# Link: join all .o files into ./frontend
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Compile one .cpp into one .o (and a .d file listing its headers)
+# Compile one .cpp into one .o and one .h into one .d
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c $< -o $@
 
@@ -29,5 +30,5 @@ clean:
 
 .PHONY: clean
 
-# Recompile a .cpp when a header it includes changes
+# Recompile a .cpp when a header it uses changes
 -include $(OBJECTS:.o=.d)

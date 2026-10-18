@@ -22,7 +22,7 @@
 
 // Starts the Front End on the terminal and runs until the input ends.
 int main() {
-    FrontEnd frontEnd(std::cin, std::cout);
-    frontEnd.run();
+    FrontEnd frontEnd(std::cin, std::cout); // engine reads keybord, prints to screen
+    frontEnd.run(); // loop until input runs out
     return 0;
 }
