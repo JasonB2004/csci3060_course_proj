@@ -4,9 +4,16 @@
 
 #include "FrontEnd.h"
 
+#include "AddCreditTransaction.h"
+#include "BuyTransaction.h"
 #include "CreateTransaction.h"
+#include "DeleteTransaction.h"
+#include "ListAccountsTransaction.h"
+#include "ListGamesTransaction.h"
 #include "LoginTransaction.h"
 #include "LogoutTransaction.h"
+#include "RefundTransaction.h"
+#include "SellTransaction.h"
 
 // Creates a Front End that reads commands from input and prints to output,
 // with every transaction ready to run. Each new transaction class is added here.
@@ -14,6 +21,13 @@ FrontEnd::FrontEnd(std::istream& input, std::ostream& output) : console(input, o
     addTransaction(std::make_unique<LoginTransaction>());
     addTransaction(std::make_unique<LogoutTransaction>());
     addTransaction(std::make_unique<CreateTransaction>());
+    addTransaction(std::make_unique<DeleteTransaction>());
+    addTransaction(std::make_unique<SellTransaction>());
+    addTransaction(std::make_unique<BuyTransaction>());
+    addTransaction(std::make_unique<RefundTransaction>());
+    addTransaction(std::make_unique<AddCreditTransaction>());
+    addTransaction(std::make_unique<ListGamesTransaction>());
+    addTransaction(std::make_unique<ListAccountsTransaction>());
 }
 
 // Reads and processes commands until the input runs out.
