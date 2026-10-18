@@ -5,11 +5,9 @@ This file holds the complete prompt and response history for the session that
 produced the Phase 2 design and code. Tool actions Claude took (reading/writing
 files, compiling, running tests) are shown as one-line notes in italics.
 
-Exported 2026-10-17 23:57 (Toronto time).
-
 ## Session: Phase 2: understanding the handout, class design, writing the Front End, study notes
 
-### Prompt (2026-10-10 20:27)
+### Prompt 1
 
 read 
 
@@ -121,7 +119,7 @@ They're **not grading correctness.** They grade how clean and understandable the
 
 You already have `project/phase2.md`. Want me to check where you're at against this list?
 
-### Prompt (2026-10-10 20:29)
+### Prompt 2
 
 what does it mean by not graded for correctness
 
@@ -145,7 +143,7 @@ It means the TA won't run your program and take marks off when it gives wrong ou
 
 In practice: write each feature the way you think it should work, test the basic happy path once, and stop there. Bugs you find later are for Phase 3.
 
-### Prompt (2026-10-10 20:30)
+### Prompt 3
 
 so if they are not running the program what does the front end actually have to produce
 
@@ -175,7 +173,7 @@ That daily transaction file is the main output. The back end (Phases 4–5) read
 
 **Something to watch:** your `phase2.md` says I already wrote a full first version with every transaction. Only login and logout have been run so far, but if the rest of it also works, that's close to the "complete before Phase 3" line the handout says costs marks. Your plan to rebuild your own version from it as a template makes sense, as long as the rebuild is a real first draft and not a polished copy.
 
-### Prompt (2026-10-10 20:32)
+### Prompt 4
 
 ok theres a side req my ta mentioned for us which is "Add a new transaction that outputs to the terminal all active accounts and the relevant information (privileged transaction)" what does that mean
 
@@ -204,7 +202,7 @@ It's the same pattern as the `LIST` games transaction from `reqs.md` line 169, e
 
 You'll need answers to all three before Phase 3, because those tests diff the exact output.
 
-### Prompt (2026-10-10 20:36)
+### Prompt 5
 
 List every requirement change or clarification from the client and professor that affects Phase 2. : 
 
@@ -302,7 +300,7 @@ Everything below comes from the thread you pasted, plus `reqs.md` for the starti
 
 Want me to add these to `reqs.md` and the open-questions list in `phase2.md`?
 
-### Prompt (2026-10-11 20:37)
+### Prompt 6
 
 read my phase 1 test cases what needs to be changed or modified
 
@@ -365,7 +363,7 @@ SELL-07 (free games), BUY-06 (wrong seller), CREATE-17 (starting credit 0, still
 
 Want me to make these edits (fix `delete_11`, add the new test folders, update the doc)? Or would you rather do them yourself in Phase 3?
 
-### Prompt (2026-10-11 20:42)
+### Prompt 7
 
 i just added a placeholder and removed the delete test we dont need to focus on this for phase 2 right
 
@@ -382,7 +380,7 @@ Two things to keep in mind before then:
 
 For the next two days, put your time into the design doc (UML, the method table, all the inputs and outputs) and the code comments. That's where the 10 marks are.
 
-### Prompt (2026-10-11 20:44)
+### Prompt 8
 
 look at phase 1 tests and tell me what the program has to print and write for each
 
@@ -438,7 +436,7 @@ On screen, money always has 2 decimals with no `$` and no leading zeros (`15.00`
 
 For Phase 2, use this as your reference for exact wording. If your code prints `Error: Permission Denied` instead of `Error: permission denied.`, it'll fail in Phase 3 for no real reason.
 
-### Prompt (2026-10-11 20:45)
+### Prompt 9
 
 List all the nouns and verbs in front end requirments
 
@@ -535,7 +533,7 @@ Your `src/` already lines up with this. The nouns became `FrontEnd`, `Session`, 
 
 If you're writing up the noun/verb analysis for the design doc, the class and method tables are the place to show it.
 
-### Prompt (2026-10-11 20:46)
+### Prompt 10
 
 now which of these are going to be classes and which are just attributes explain your reasoning for each
 
@@ -603,7 +601,7 @@ Max username length (15), max game name (25/26), max price (999.99), max credit 
 
 For the design doc, a short version of the **user type** reasoning is the part most worth including. It's the most obvious place a marker would expect subclasses, so explaining why you didn't use them shows the design was a deliberate choice.
 
-### Prompt (2026-10-12 20:54)
+### Prompt 11
 
 now that i have these what are the next steps
 
@@ -657,7 +655,7 @@ Your `phase2.md` says you want to rebuild your own version using this one as a t
 
 Want me to start on step 4 and put today's reasoning and decisions into the design doc?
 
-### Prompt (2026-10-12 20:55)
+### Prompt 12
 
 now that i have these what are the next steps in this csci3060_course_proj repo
 
@@ -709,7 +707,7 @@ Monday is also CSCI3052U's PM3 due date. Finish Phase 2 Sunday night so Monday i
 
 Want me to set up the `phase2/` folder structure and the README row now?
 
-### Prompt (2026-10-12 20:58)
+### Prompt 13
 
 What jobs need one owner that aren't nouns in the spec, like reading files, keyboard input, and padding text? Suggest a class for each.
 
@@ -740,7 +738,7 @@ These are tempting, but each one adds a class with no real job. The marking sche
 
 In the design doc, say briefly that these were left out on purpose ("considered, rejected because…"). It shows the TA a deliberate "simplest solution" choice, which is what the Maintainability marks reward.
 
-### Prompt (2026-10-12 20:59)
+### Prompt 14
 
 Every command checks permission, asks questions, validates, then records a line. How should I use inheritance for that? Explain why a base class beats one big if/else.
 
@@ -825,7 +823,7 @@ if (cmd == "create") {
 
 For the design doc, one paragraph is enough: "Shared login and permission checks live in `Transaction`/`PrivilegedTransaction` and are run once by `FrontEnd`; each subclass implements only its own prompts, rules and output line, so adding a transaction means adding one class."
 
-### Prompt (2026-10-13 21:01)
+### Prompt 15
 
 only read from this csci3060_course_proj dir from here on
 
@@ -846,7 +844,7 @@ What that changes:
 
 One exception to check: your CLAUDE.md has me keeping `DEADLINES.md` updated, and that file is outside this folder. Should I still edit it when a status changes, or leave it alone?
 
-### Prompt (2026-10-13 21:02)
+### Prompt 16
 
 Create, delete, refund and listaccounts are all admin-only. How do I avoid repeating that check in four classes?
 
@@ -900,7 +898,7 @@ Transaction            isAllowedFor → true (anyone)
 
 **For the design doc:** a one-line note in the class table is enough, e.g. `PrivilegedTransaction`: "Base class for admin-only transactions; enforces the admin check once so create, delete, refund and listaccounts don't repeat it." That covers the "as little cloning as possible" criterion.
 
-### Prompt (2026-10-13 21:02)
+### Prompt 17
 
 Give me the final class list with a one-sentence job for each, and the relationships between them (inheritance, composition, uses).
 
@@ -1018,7 +1016,7 @@ classDiagram
 
 **Before you submit:** the handout grades the design on "accurately reflects solution structure." If you rename, merge or drop a class while coding, update this list and the diagram to match. The TA will check the two against each other.
 
-### Prompt (2026-10-13 21:03)
+### Prompt 18
 
 Why store money as cents in a long long instead of a double? Show me an example of the double problem.
 
@@ -1073,7 +1071,7 @@ Honestly, `int` would work. The largest value you have is 999,999.99 = 99,999,99
 
 **For the design doc** (Maintainability: "no tricks"), add one line: "Money is stored as integer cents to avoid floating-point rounding errors at the spec's exact limits ($1000, 999.99, 999,999.99)." Otherwise a TA might mistake it for a clever trick.
 
-### Prompt (2026-10-13 21:04)
+### Prompt 19
 
 Make a Constants.h plan: which fixed values (file names, field widths, limits, transaction codes) should live in one place?
 
@@ -1194,7 +1192,7 @@ namespace Config {
 - The game-name length of 26 differs from the spec's 25. Keep the comment, and list it in the design doc's assumptions.
 - In `run_tests.sh`, set `FRONTEND` to your compiled binary once it exists. Right now it defaults to `phase1/frontend`.
 
-### Prompt (2026-10-14 21:08)
+### Prompt 20
 
 ok so we just went over understanding phase 2 and designing the classes, can you now make a pdf that i can write out on paper explaining everything we just went over simply in very easy to understand way so i can grasp what is going on so far in the assignment it should include everything
   we talked ab up to this point again very simply so i can write in my notebook by hand and on paper then once i fully understand can move onto the code
@@ -1205,11 +1203,11 @@ ok so we just went over understanding phase 2 and designing the classes, can you
 
 *[Claude used tool `Bash`: Look for a pandoc PDF engine or pip]*
 
-### Prompt (2026-10-14 21:08)
+### Prompt 21
 
 [Request interrupted by user]
 
-### Prompt (2026-10-14 21:08)
+### Prompt 22
 
 <pasted_content id="766f">
 We just finished going over Phase 2 and designing the classes. Before I start coding, I want to make sure I fully understand everything.
@@ -1261,7 +1259,7 @@ I checked that all 8 pages generated and the text extracts correctly. I couldn't
 
 The file is in the repo folder but not committed. If you do commit it, it was AI-generated, so include it in your GenAI disclosure.
 
-### Prompt (2026-10-14 21:50)
+### Prompt 23
 
 so when you type listaccounts to the frontend it prints every account in that session?
 
@@ -1287,7 +1285,7 @@ Same with credit: if `fulluser` got `addcredit 100` earlier in the session, opti
 - For Phase 2, go with A, since it's the simplest. Write it in the design doc's assumptions: "listaccounts shows accounts as of this moment in the session (file contents plus this session's create, delete and credit changes)."
 - Before Phase 3, ask the client, along with the official command name and output format, since those tests will check the exact output.
 
-### Prompt (2026-10-14 21:50)
+### Prompt 24
 
 so it will literally print 
 
@@ -1342,7 +1340,7 @@ Put this exact format in your design doc assumptions. Then confirm it with the c
 
 Also, your `phase1/tests/listaccounts/` folder is empty. Git doesn't track empty folders, so it's not on GitHub (your last commit only shows the `delete_11` removal). If you want the placeholder to show up, add a `.gitkeep` file inside it.
 
-### Prompt (2026-10-14 21:52)
+### Prompt 25
 
 oh so it performs like lists but for accounts instead of games
 
@@ -1362,7 +1360,7 @@ The only real difference is the **admin-only** part. That's why in the design, `
 
 Since the two are so similar, the code for each is short: loop over the session's list and print one line per item.
 
-### Prompt (2026-10-15 21:57)
+### Prompt 26
 
 Explain what a .h file and a .cpp file are, then show me how to set up phase2/src/ and a Makefile that builds ./frontend.
 
@@ -1513,7 +1511,7 @@ phase2/frontend
 
 I haven't created any of these files in your repo, since you said you want to understand it before coding. Do you want me to create the folders, Makefile and `.gitignore`, or would you rather type them yourself? The Makefile is a good one for your partner to commit.
 
-### Prompt (2026-10-15 22:07)
+### Prompt 27
 
 so these are all the classes we are going to make correct?: [⧉ In .gitignore] can you name me again all the
 
@@ -1532,11 +1530,11 @@ Yes, that's the full list. Your message got cut off, so here are all the classes
 6. `Formatter`: `Formatter.h` / `Formatter.cpp`
 7. `TransactionLine`: `TransactionLine.
 
-### Prompt (2026-10-15 22:07)
+### Prompt 28
 
 [Request interrupted by user]
 
-### Prompt (2026-10-15 22:07)
+### Prompt 29
 
 so these are all the classes we are going to make correct?: 
 
@@ -1577,7 +1575,7 @@ Yes. That's the full list, with three small clarifications.
 - **Create all 21, but don't finish them all.** The design must cover every command (Completeness marks). The code only needs the normal case and the obvious errors working. Leave the edge cases for Phase 3.
 - **This is the plan, not a contract.** If you merge, rename or drop a class while coding, update the diagram and table to match. The TA marks the design on whether it "accurately reflects" the code.
 
-### Prompt (2026-10-15 22:10)
+### Prompt 30
 
 in the spec or anywhere in the descriptions did it state to add file manager formatter or  console
 
@@ -1613,7 +1611,7 @@ No. That rule is about **features**, meaning things the user can do, like a new 
 
 Whatever you choose, give each helper class you keep a one-line reason in the design doc, like "added so file I/O lives in one place." Then the TA can see why it exists even though the spec doesn't mention it.
 
-### Prompt (2026-10-15 22:20)
+### Prompt 31
 
 Help me Write Constants.h with every fixed value we planned, each with a short comment.
 
@@ -1648,7 +1646,7 @@ I've written `phase2/src/Constants.h` with every value from the plan, each with 
 
 The file isn't committed. Once you've read through it and agree with it, commit it, or have your partner commit it so their name shows up in the repo history.
 
-### Prompt (2026-10-15 22:22)
+### Prompt 32
 
 does it say we need a constants in the spec or is this jus clean code
 
@@ -1668,7 +1666,7 @@ The spec doesn't require it. Neither the project spec nor the Phase 2 handout me
 
 For the design doc, one line covers it, e.g. "All fixed values from the requirements are named constants in `Constants.h`, so a requirement change is a single edit." That links it to the spec's "easily modify" requirement, so it doesn't look like an extra.
 
-### Prompt (2026-10-15 22:23)
+### Prompt 33
 
 explain what methods a user class needs and why name and type have no setters. Then write User.h and User.cpp with a comment on every method.
 
@@ -1722,7 +1720,7 @@ How the files are laid out:
 
 Neither file is committed yet.
 
-### Prompt (2026-10-15 22:26)
+### Prompt 34
 
 Write Game.h and OwnedGame.h the same way.
 
@@ -1758,7 +1756,7 @@ I've written `Game` and `OwnedGame` in the same style as `User`. I added a match
 
 Your `phase2/src/` now has `Constants.h`, `User`, `Game` and `OwnedGame`, and none of it is committed yet. The next step is `Formatter`, since `FileManager` and `TransactionLine` both depend on it.
 
-### Prompt (2026-10-15 22:27)
+### Prompt 35
 
 Explain the listedThisSession flag.
 
@@ -1812,7 +1810,7 @@ You could instead keep a separate list in `Session` of names listed this session
 
 Side note: your editor is warning that `#include <string>` in `OwnedGame.h` is unused. That warning is wrong, because `OwnedGame` uses `std::string` for both of its fields. It's most likely your editor's C++ plugin not knowing the build settings yet. Keep the include. Removing it would only compile by luck, if some other header happened to pull `<string>` in.
 
-### Prompt (2026-10-16 22:54)
+### Prompt 36
 
 how will we later connect these classes we are making to our frontend
 
@@ -1906,7 +1904,7 @@ The pending lines that `Session` has collected go to `FileManager`, which append
 
 To check your understanding, think about this: when `buy` calls `seller.addCredit(price)`, which object actually changes, and why does it matter that `Session` hands out a **reference** (`User&`) instead of a copy? Work out an answer before you write `Session`, because that's the most common bug at this step.
 
-### Prompt (2026-10-16 22:55)
+### Prompt 37
 
 Explain what Formatter needs to do for the fixed-width files and money. Then write Formatter.h/.cpp with padRight, trimRight, extractField, formatMoney and parseMoney.
 
@@ -1977,7 +1975,7 @@ parseMoney ✗: "" · abc · $15 · -5 · 15.999 · .5 · 15. · 1.2.3 · " 15" 
 
 `phase2/src/` now has `Constants.h`, `User`, `Game`, `OwnedGame` and `Formatter`, none of them committed. Next is `Console` (keyboard and screen) or `FileManager` (it uses `Formatter` to read the three files).
 
-### Prompt (2026-10-16 23:00)
+### Prompt 38
 
 Write TransactionLine.h/.cpp so each kind of daily transaction file line is built in one place. Show the exact format of each line against a Phase 1 expected transactions file.
 
@@ -2054,7 +2052,7 @@ One related note: the `06` line holds **the amount added**, which matches your t
 
 `phase2/src/` now has `Constants.h`, `User`, `Game`, `OwnedGame`, `Formatter` and `TransactionLine`, none of them committed. Next up is `Console` or `FileManager`.
 
-### Prompt (2026-10-16 23:02)
+### Prompt 39
 
 Write Console.h/.cpp: the only class that reads input and prints. Explain why prompt() returns "" when the input ends.
 
@@ -2122,7 +2120,7 @@ Input can stop **anywhere**, including halfway through a transaction (`sell`, th
 ## The detail that matters for your tests
 The code checks **whether `getline` succeeded**, not `input.eof()`. When the last line has no newline, `getline` still reads it successfully but also sets the end-of-file flag. Checking `eof()` would treat that final `logout` as "no input" and skip it, and all 121 tests would fail on their transaction files. There's a comment in `prompt()` explaining this, because it's an easy thing to "fix" back into a bug later.
 
-### Prompt (2026-10-16 23:02)
+### Prompt 40
 
 Write FileManager.h/.cpp to read users.txt, games.txt and collection.txt up to END and append to transactions.txt. Explain the field start positions.
 
@@ -2216,7 +2214,7 @@ Each field is then read with `Formatter::extractField(line, start, width)`, whic
 
 `phase2/src/` now has everything except `Session`, `Transaction` and its subclasses, and `FrontEnd`.
 
-### Prompt (2026-10-16 23:05)
+### Prompt 41
 
 what is a commit message i can write for everything i have so far
 
@@ -2263,7 +2261,7 @@ git push
 
 **Before you push:** I wrote most of this code, so it goes in your GenAI disclosure (this conversation counts). It doesn't need to be in the commit messages.
 
-### Prompt (2026-10-16 23:08)
+### Prompt 42
 
 Explain what Session should hold and why it re-reads the files at every login. Then write Session.h/.cpp.
 
@@ -2342,7 +2340,7 @@ That second-session line is the "re-read at every login" behaviour working: a de
 
 `phase2/src/` now has everything except `Transaction`, its subclasses and `FrontEnd`. Those are what the program actually *does*, so they're the place to keep it a rough first draft.
 
-### Prompt (2026-10-16 23:10)
+### Prompt 43
 
 Write the abstract Transaction base class with getName, requiresLogin, isAllowedFor and execute, plus the shared helpers readExistingUser and readMoney.
 
@@ -2411,7 +2409,7 @@ Each check is one line followed by `return`, so every `execute()` reads top to b
 
 Next up are `PrivilegedTransaction` (one override) and the command classes. Those are the parts to keep as a rough first draft.
 
-### Prompt (2026-10-16 23:12)
+### Prompt 44
 
 is there a way we can seperate like these foundation classes that are used by all these other classes in a dir or no
 
@@ -2477,7 +2475,7 @@ The `-I` flags tell the compiler to look in every folder for headers.
 
 Since everything is still uncommitted, now is the cheapest time to move the files. Do you want me to move the files and update your Makefile? I'd read your current `Makefile` first, since you wrote that one.
 
-### Prompt (2026-10-17 23:15)
+### Prompt 45
 
 26. Write PrivilegedTransaction so admin-only commands inherit the admin check.
 
@@ -2521,7 +2519,7 @@ The same goes for `DeleteTransaction`, `RefundTransaction` and `ListAccountsTran
 
 In the UML diagram, draw these 4 classes as children of `PrivilegedTransaction`, with `PrivilegedTransaction` as a child of `Transaction`. List `isAllowedFor` only in `PrivilegedTransaction`'s box.
 
-### Prompt (2026-10-17 23:16)
+### Prompt 46
 
 27. Write LoginTransaction and LogoutTransaction. Match the exact messages in the Phase 1 tests.
 
@@ -2588,7 +2586,7 @@ admin      (<-- trailing spaces added)
 ```
 The note was typed **into the input file**. It still passes (that string isn't a user either), but it doesn't test what it claims. In Phase 3, delete the note so the line is just `admin` plus spaces, and log it as a test fix.
 
-### Prompt (2026-10-17 23:19)
+### Prompt 47
 
 Write FrontEnd.h/.cpp: the command loop, finding the transaction by name, and the "must log in first" / "permission denied" checks in one place.
 
@@ -2680,7 +2678,7 @@ int main() {
 
 It's your file, so I haven't edited it. I can paste it in if you want, or you or your partner can commit it yourselves. After that, `make` in `phase2/` builds a working `./frontend`.
 
-### Prompt (2026-10-17 23:21)
+### Prompt 48
 
 Write main.cpp with a top comment explaining the program, its input and output files, and how to run it.
 
@@ -2718,7 +2716,7 @@ All 5 failures use commands that don't exist yet: login_09 uses `addcredit`, and
 
 The program now **runs on some inputs**, which is the handout's minimum. What's left is the 8 command classes (create, delete, sell, buy, refund, addcredit, list, listaccounts), registered in `FrontEnd`'s constructor. That's the part to keep rough for Phase 2.
 
-### Prompt (2026-10-17 23:23)
+### Prompt 49
 
 explain how i build and run the tests on my own through the terminal
 
@@ -2804,7 +2802,7 @@ That single line rebuilds, and if the build succeeds, runs one folder's tests. T
 ## Reminder for Phase 2
 For this phase you only need the program to **build and pass a few tests** (login/logout already do). Running the whole suite and fixing failures is Phase 3's job. Also, every test run creates a new `phase1/outputs/<date>/` folder, so either add `phase1/outputs/*/` to `.gitignore` or commit runs on purpose as Phase 3 evidence.
 
-### Prompt (2026-10-17 23:25)
+### Prompt 50
 
 <pasted_content id="766f">
 jasim@JaydragoPC:~/workspace/university/courses/CSCI3060U/csci3060_course_proj/phase1/tests/data$ ../../../phase2/frontend
@@ -2881,7 +2879,7 @@ Each prompt should now appear before you type. Two things to remember when runni
 
 **The one limitation of this fix:** it relies on input files **not** ending with a newline. All 121 of yours don't. If someone later saves an input file with a final newline, that test's output gets one extra `Enter command:` at the end and fails. If a Phase 3 failure ever ends with a stray `Enter command:`, that's the reason. The comment in `Console.cpp` explains the `eof()` check, so whoever reads the code later knows why it's there.
 
-### Prompt (2026-10-17 23:27)
+### Prompt 51
 
 <pasted_content id="766f">
 The cause is the fix I made to Console earlier. To avoid a trailing Enter command: at the end of the test outputs, prompt() calls input.peek() to check for more input before printing. With a file, that check returns instantly. With a keyboard, peek() waits until you type something, so the prompt only prints after you've already answered. I only tested with files, which is why I missed it. Sorry about that.
@@ -2926,7 +2924,7 @@ I've applied the fix in `Console.cpp` and verified it. Your diagnosis was right.
 
 The `Console.h` comment ("returns `""` without printing the prompt if there is no more input") is still accurate, so I left it as is.
 
-### Prompt (2026-10-17 23:29)
+### Prompt 52
 
 what command do i run in my terminal to check the frontend and run the tests
 
@@ -2981,7 +2979,7 @@ FRONTEND=$(pwd)/../phase2/frontend ./run_tests.sh           # every test
 
 `run_tests.sh` creates a new `outputs/` folder every time it runs. Add `phase1/outputs/*/` to `.gitignore`, or delete the old runs, so you don't commit dozens of them.
 
-### Prompt (2026-10-17 23:31)
+### Prompt 53
 
 <pasted_content id="766f">
 ase1/tests/data$ cd ../phase1/tests/data
@@ -3029,7 +3027,7 @@ You should now see `Enter command:`. Type `login`, `admin`, `logout`, then press
 
 If you'd rather I paste it into `main.cpp` for you, just say so. I've left it alone because it's your file.
 
-### Prompt (2026-10-17 23:32)
+### Prompt 54
 
 yes replace
 
@@ -3068,7 +3066,7 @@ You should get `Enter command:`. Afterwards, `rm transactions.txt` in that folde
 
 That test run added two result folders, `phase1/outputs/2026-10-17_233253/` and `_233254/`. Delete them, or add `phase1/outputs/*/` to `.gitignore`, so they don't get committed.
 
-### Prompt (2026-10-17 23:34)
+### Prompt 55
 
 what command do i run in my terminal to check the frontend and run the tests
 
@@ -3123,7 +3121,7 @@ FRONTEND="$(pwd)/../phase2/frontend" ./run_tests.sh           # all 121
 
 The output folders pile up with every run. Add `phase1/outputs/*/` to `.gitignore` (keep the `.gitkeep`) so they don't get committed. You'll want only the final Phase 3 run in the repo.
 
-### Prompt (2026-10-17 23:38)
+### Prompt 56
 
 Explain the failures I got when I ran logout and login tests
 
@@ -3169,7 +3167,7 @@ So one missing command turns into **several** `invalid command.` lines, because 
 - These 5 will start passing as you add `AddCreditTransaction`, `BuyTransaction` and `SellTransaction`, plus one `addTransaction(...)` line each in `FrontEnd.cpp`.
 - **For Phase 2, this is fine.** The handout wants it to "run on at least some inputs," and you're already there. Don't chase these failures now, because testing and fixing is Phase 3.
 
-### Prompt (2026-10-17 23:38)
+### Prompt 57
 
 Write CreateTransaction. Check the username before asking for the type, matching create_09 to create_15.
 
@@ -3218,7 +3216,7 @@ Each check is followed by an early `return`, so the method reads top to bottom w
 ## Where you are
 Done: login, logout, create. Still to write: delete, sell, buy, refund, addcredit, list, listaccounts. Remember the Phase 2 rule about not finishing early: with three commands working, you're well past "runs on some inputs." For the rest, a basic version that handles the normal case and obvious errors is enough. Polishing every test is for Phase 3.
 
-### Prompt (2026-10-17 23:39)
+### Prompt 58
 
 Write DeleteTransaction. Explain why I copy the user's details before removing them.
 
@@ -3277,7 +3275,7 @@ session.removeUser(deletedUser.getName());    // 'found' is now unsafe; 'deleted
 
 Done so far: login, logout, create, delete. Still to write: sell, buy, refund, addcredit, list, listaccounts.
 
-### Prompt (2026-10-17 23:40)
+### Prompt 59
 
 Write SellTransaction, matching the Phase 1 sell tests' error order.
 
@@ -3326,7 +3324,7 @@ What passes: `0.00` (07, free games), `999.99` (05), `15` → 15.00 (09), `15.5`
 ## A note on the Phase 2 rule
 You now have **5 of 10 commands** passing almost every test that doesn't depend on a missing command. The handout says you lose marks for completing the front end before Phase 3. A reasonable line for the remaining five (buy, refund, addcredit, list, listaccounts): **write them, but stop at the normal case plus the obvious errors.** Don't run the full suite and chase every failure. Leave the edge cases for Phase 3, and say so in the design doc ("first version: not fully tested, by design").
 
-### Prompt (2026-10-17 23:41)
+### Prompt 60
 
 Write BuyTransaction. List the rules in the order they're checked and which test covers each one.
 
@@ -3389,7 +3387,7 @@ The order also appears in the `.h` header comment, so it can go straight into yo
 
 Done: login, logout, create, delete, sell, buy. Left: addcredit, refund, list, listaccounts.
 
-### Prompt (2026-10-17 23:43)
+### Prompt 61
 
 Write RefundTransaction and AddCreditTransaction. Explain the $1000 per-session limit tracking.
 
@@ -3475,7 +3473,7 @@ My recommendation:
 - **Make sure the GenAI log covers this session.** Nearly all of this code was written here, so the disclosure has to show it, or the submission gets a zero.
 - **Get your partner's commits in.** The repo history currently shows only you, and all of `phase2/src/` is still uncommitted.
 
-### Prompt (2026-10-17 23:46)
+### Prompt 62
 
 Write list and listaccounts as quick, basic versions so the design is complete (the Completeness marks need every command in the diagram), but don't test them.
 - Don't run the full suite and fix anything else before Monday. Say plainly in the design doc that this is a first version and that testing is planned for Phase 3.
@@ -3534,7 +3532,7 @@ The `Active accounts:` heading and the line format are my guesses. The client ha
 
 Want me to start the design doc next?
 
-### Prompt (2026-10-17 23:48)
+### Prompt 63
 
 first befoer that in notes i want you to do a detailed pass through of all the classes and headers we made detailed but explained simply it can be lon but just get the explination of what the class and header does in simple terms go down from the first class we made down to the last
 
@@ -3572,7 +3570,7 @@ It ends with **one `sell` command traced through every class it touches**, a **"
 
 I checked that all 21 pages generated and the text extracts correctly, but I couldn't view them as images, so skim the layout before you print. The file isn't committed, and like the study guide, it's AI-generated, so it belongs in your GenAI disclosure if you commit it.
 
-### Prompt (2026-10-17 23:52)
+### Prompt 64
 
 ok now take this whole conversation we have had up until this point and put it in a md file like we did in phase 1 for gen ai disclosure
 
