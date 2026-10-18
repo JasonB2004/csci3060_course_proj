@@ -26,7 +26,7 @@ public:
     Console(std::istream& input, std::ostream& output);
 
     // Prints promptText on its own line, then reads and returns the next input line.
-    // Returns "" if there is no more input.
+    // Returns "" (without printing the prompt) if there is no more input.
     std::string prompt(const std::string& promptText);
 
     // Prints text on its own line.

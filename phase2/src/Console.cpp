@@ -9,8 +9,16 @@ Console::Console(std::istream& input, std::ostream& output)
     : input(input), output(output), inputRemaining(true) {}
 
 // Prints promptText on its own line, then reads and returns the next input line.
-// Returns "" if there is no more input.
+// Returns "" (without printing the prompt) if there is no more input.
 std::string Console::prompt(const std::string& promptText) {
+    // Skip the prompt if the last read already reached the end of the input, so
+    // the output ends with the last message instead of a dangling prompt.
+    // eof() only reports what earlier reads found, so it never waits for typing
+    // (peek() would, and the prompt would appear only after the user answered).
+    if (input.eof()) {
+        inputRemaining = false;
+        return "";
+    }
     print(promptText);
 
     std::string line;
