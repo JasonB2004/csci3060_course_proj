@@ -1,0 +1,187 @@
+==================== delete_11: FAIL (terminal output)
+--- terminal output (< expected tests/expected/delete_11.out, > actual delete_11.out)
+11c11
+< Error: user does not exist.
+---
+> Login successful. Welcome buyuser (BS).
+13,14c13,15
+< Enter username:
+< Login successful. Welcome admin (AA).
+---
+> Error: already logged in.
+> Enter command:
+> Error: invalid command.
+
+==================== search_01: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_01.out, > actual search_01.out)
+5,9c5,7
+< Enter search query:
+< Games matching "dew":
+< Stardew Valley - selluser - 15.00
+< Users matching "dew":
+< No users found.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_02: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_02.out, > actual search_02.out)
+5,11c5,7
+< Enter search query:
+< Games matching "user":
+< No games found.
+< Users matching "user":
+< fulluser
+< buyuser
+< selluser
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_03: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_03.out, > actual search_03.out)
+5,9c5,7
+< Enter search query:
+< Games matching "shop":
+< Admin Shop Game - shopadmin - 30.00
+< Users matching "shop":
+< shopadmin
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_04: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_04.out, > actual search_04.out)
+5,9c5,7
+< Enter search query:
+< Games matching "admin":
+< Admin Shop Game - shopadmin - 30.00
+< Users matching "admin":
+< shopadmin
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_05: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_05.out, > actual search_05.out)
+5,10c5,7
+< Enter search query:
+< Games matching "admin":
+< Admin Shop Game - shopadmin - 30.00
+< Users matching "admin":
+< admin
+< shopadmin
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_06: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_06.out, > actual search_06.out)
+5,9c5,7
+< Enter search query:
+< Games matching "admin":
+< Admin Shop Game - shopadmin - 30.00
+< Users matching "admin":
+< shopadmin
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_07: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_07.out, > actual search_07.out)
+5,9c5,7
+< Enter search query:
+< Games matching "STARDEW valley":
+< Stardew Valley - selluser - 15.00
+< Users matching "STARDEW valley":
+< No users found.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_08: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_08.out, > actual search_08.out)
+5,9c5,7
+< Enter search query:
+< Games matching "zzz":
+< No games found.
+< Users matching "zzz":
+< No users found.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_09: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_09.out, > actual search_09.out)
+5,6c5,7
+< Enter search query:
+< Error: invalid search query.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_10: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_10.out, > actual search_10.out)
+2c2
+< Error: you must log in first.
+---
+> Error: invalid command.
+
+==================== search_11: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_11.out, > actual search_11.out)
+9,13c9,11
+< Enter search query:
+< Games matching "Celeste":
+< No games found.
+< Users matching "Celeste":
+< No users found.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_12: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_12.out, > actual search_12.out)
+8,12c8
+< Enter search query:
+< Games matching "Stardew":
+< No games found.
+< Users matching "Stardew":
+< No users found.
+---
+> Error: invalid command.
+14,18c10,14
+< Enter search query:
+< Games matching "selluser":
+< No games found.
+< Users matching "selluser":
+< No users found.
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
+==================== search_13: FAIL (terminal output)
+--- terminal output (< expected tests/expected/search_13.out, > actual search_13.out)
+9,13c9,11
+< Enter search query:
+< Games matching "fan":
+< No games found.
+< Users matching "fan":
+< newfan
+---
+> Error: invalid command.
+> Enter command:
+> Error: invalid command.
+
