@@ -6,7 +6,7 @@ Team: Group 35 — Jason Badwal, Emma Zhu
 |---|---|---|
 | 1. Front End Requirements (tests) | Oct 2 | `phase1/` |
 | 2. Front End Rapid Prototype | Oct 19 | `phase2/` |
-| 3. Front End Requirements Testing | Nov 6 | |
+| 3. Front End Requirements Testing | Nov 6 | `phase3/` |
 | 4. Back End Rapid Prototype | Nov 20 | |
 | 5. Back End Unit Testing | Nov 30 | |
 | 6. Integration and Delivery | Dec 7 | |
@@ -25,21 +25,31 @@ Team: Group 35 — Jason Badwal, Emma Zhu
 - `phase2/data/` — sample `users.txt`, `games.txt` and `collection.txt` for trying it by hand
 - `phase2/docs/` — design document, UML diagrams (`uml_diagrams/`), GenAI disclosure and the script that exports it
 
+## Phase 3 layout
+- `phase3/run_tests.sh` — builds the Front End, runs every test, then checks the results
+- `phase3/check_outputs.sh` — compares a run's actual outputs with the expected ones
+- `phase3/tests/inputs/<test>.inp` — what the user types
+- `phase3/tests/expected/<test>.out` / `<test>.etf` — expected terminal output / daily transaction file
+- `phase3/tests/data/` — starting files for every test (`data/search/` for the search tests)
+- `phase3/outputs/<date>_<time>/` — actual outputs, `report.txt` and `failures.txt` for each run
+- `phase3/docs/phase3_report.md` — failure log and instructions
+
 ## Building and running the Front End
 ```bash
 cd phase2
 make                  # builds ./frontend
-cd data
-../frontend           # type commands; Ctrl+D to end
+./frontend data/users.txt data/games.txt data/collection.txt transout.atf   # type commands; Ctrl+D to end
 ```
-The Front End reads `users.txt`, `games.txt` and `collection.txt` from the folder it is run in, and appends to `transactions.txt` there at each logout.
+The four arguments are the current user accounts file, the available games file, the game
+collection file and the daily transaction file. The first three are read at every login and never
+changed; the transaction file is appended to at each logout.
 
-Commands: `login`, `logout`, `create`, `delete`, `sell`, `buy`, `refund`, `addcredit`, `list`, `listaccounts`.
+Commands: `login`, `logout`, `create`, `delete`, `sell`, `buy`, `refund`, `addcredit`, `list`, `listaccounts`, `search`.
 
-## Running the Phase 1 tests against it
+## Running the tests
 ```bash
-cd phase1
-FRONTEND="$(pwd)/../phase2/frontend" ./run_tests.sh          # all tests
-FRONTEND="$(pwd)/../phase2/frontend" ./run_tests.sh sell     # one command's tests
+cd phase3
+./run_tests.sh            # all tests
+./run_tests.sh sell       # one command's tests
+./check_outputs.sh        # re-check the latest run
 ```
-`FRONTEND` must be a full path, since each test runs in a temporary folder.
