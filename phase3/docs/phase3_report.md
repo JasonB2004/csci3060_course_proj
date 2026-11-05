@@ -40,7 +40,7 @@ cd phase3
 ./check_outputs.sh outputs/2026-11-05_150242     # re-check one particular run
 ```
 
-`run_tests.sh` does everything: it builds the Front End with `make`, runs all 136 tests, then
+`run_tests.sh` does everything: it builds the Front End with `make`, runs all 146 tests, then
 calls `check_outputs.sh`. No manual steps are needed. The scripts can be started from any
 folder.
 
@@ -96,11 +96,14 @@ if every test passed.
 | 0 | (Phase 1 script, not kept) | Phase 2 prototype, unchanged | 122 | 121 | 1 (`delete_11`) |
 | 1 | `outputs/2026-11-05_150242` | Phase 2 prototype + file names on the command line (commit `75052ba`) | 136 | 122 | 14 |
 | 2 | `outputs/2026-11-05_150425` | `search` added, `delete_11` corrected (commit `1d5c097`) | 136 | 136 | 0 |
+| 3 | `outputs/2026-11-05_151420` | Same code, 10 tests added for client clarifications (commit `84705b8`) | 146 | 146 | 0 |
 
 Run 0 was a first check of the unchanged Phase 2 prototype with the Phase 1 `run_tests.sh`. It
 found the same `delete_11` failure as run 1, so that failure is logged once below. Run 1 was the
 first run of the full Phase 3 suite. The 14 new `search` tests were written from the client's
-requirement before `search` was programmed. Run 2 is the full suite again after every fix.
+requirement before `search` was programmed. Run 2 is the full suite again after every fix. Run 3
+added 10 tests for client and professor answers given during Phase 2 that had no test yet
+(section 6). They all passed on their first run, so they produced no failures to log.
 
 # 4. Failure log
 
@@ -125,7 +128,7 @@ terminal output was wrong.
 | 14 | search_13 | A user created this session (`newfan`) is found by searching `fan` | After the create, `search` and `fan` each gave `Error: invalid command.` | `search` not implemented | Same fix as #2 |
 
 `search_14` (`search now` with extra words is an invalid command) passed in run 1 too, since
-`search now` was rejected as an unknown command either way. It still passes in run 2.
+`search now` was rejected as an unknown command either way. It still passes in runs 2 and 3.
 
 # 5. Changes made in Phase 3
 
@@ -144,8 +147,29 @@ terminal output was wrong.
   contents are unchanged, except for `delete_11` (failure #1).
 - 14 new tests, `search_01` to `search_14`, with their own starting files in `tests/data/search/`.
   The shared files have no admin who sells a game, so they can't test the hiding rule.
+- 10 new tests for client clarifications given after Phase 1 (section 6).
 
-# 6. How `search` behaves (our reading of the client's update)
+# 6. Requirement changes since Phase 1 and the tests that cover them
+
+The client and professor answered several questions after Phase 1. This table shows how the
+tests now reflect each answer.
+
+| Change or clarification | Source | Tests |
+|---|---|---|
+| The Front End never writes the accounts or games files. Each login re-reads them, so a user deleted in one session can still log in at the next login, until the Back End runs. | Professor | `delete_11` (corrected, failure #1), `sell_20` |
+| New admin-only transaction listing all active accounts (`listaccounts`). It shows username, type and credit, includes this session's changes and writes nothing to the transaction file. | Client | `listaccounts_01` to `listaccounts_06` (new) |
+| A username freed by `delete` can be reused in the same session. | Client | `create_20` (new) |
+| User types are entered as the abbreviations AA/FS/BS/SS, and our team chose to make them case-sensitive. | Client (left to us) | `create_21` (new) |
+| If the input ends without `logout`, no daily transaction file is written. | Client | `logout_08` (new) |
+| The $1000 per-session `addcredit` limit applies to every account, including credit added by an admin. | Professor | `addcredit_15` (new), `addcredit_09`, `addcredit_13` |
+| Games can be free (price 0.00). | Professor | `sell_07` |
+| A `buy` with the wrong seller name is invalid. | Professor | `buy_06` |
+| New `search` transaction (Phase 3 update). | Client | `search_01` to `search_14` (new) |
+
+`listaccounts` is still the name our team chose. If the client gives a required name, only
+`Config::COMMAND_LIST_ACCOUNTS` in `Constants.h` and the six test inputs need to change.
+
+# 7. How `search` behaves (our reading of the client's update)
 
 The client asked for a `search` transaction that "outputs all items and all users whose names
 contain the search query", where a non-admin "should not output any names of administrators who
