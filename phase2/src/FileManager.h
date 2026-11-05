@@ -10,7 +10,7 @@
 // Reading stops at that line. A missing file reads as empty and a line that
 // can't be understood is skipped, so a bad file never crashes the program.
 //
-// File names come from Constants.h and are relative to the current directory.
+// File names are given on the command line and passed in by main.cpp.
 
 #pragma once
 
@@ -23,6 +23,12 @@
 
 class FileManager {
 public:
+    // Creates a file manager for the given current user accounts, available
+    // games and game collection files (read only) and daily transaction file
+    // (appended to at each logout).
+    FileManager(const std::string& usersFile, const std::string& gamesFile,
+                const std::string& collectionFile, const std::string& transactionFile);
+
     // Reads every account from the current user accounts file, up to END.
     std::vector<User> readUsers() const;
 
@@ -39,4 +45,9 @@ private:
     // Returns the lines of a file before its END line, or nothing if the file can't be opened.
     // firstFieldWidth is the width of the field that holds END (username or game name).
     std::vector<std::string> readLinesUntilEnd(const std::string& fileName, std::size_t firstFieldWidth) const;
+
+    std::string usersFile;        // current user accounts file
+    std::string gamesFile;        // available games file
+    std::string collectionFile;   // game collection file
+    std::string transactionFile;  // daily transaction file
 };

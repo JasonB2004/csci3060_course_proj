@@ -21,13 +21,10 @@ using Cents = long long;
 
 namespace Config {
 
-    // ---- File names (read from and written to the current directory) ----
+    // ---- Input and output files ----
+    // The four file names are given on the command line (see main.cpp).
 
-    const std::string USER_ACCOUNTS_FILE     = "users.txt";         // current user accounts (read only)
-    const std::string AVAILABLE_GAMES_FILE   = "games.txt";         // games for sale (read only)
-    const std::string GAME_COLLECTION_FILE   = "collection.txt";    // who owns which game (read only)
-    const std::string DAILY_TRANSACTION_FILE = "transactions.txt";  // written at each logout
-    const std::string END_MARKER             = "END";               // name on the last line of every input file
+    const std::string END_MARKER = "END";  // name on the last line of every input file
 
     // ---- Field widths in the fixed-width files ----
     // Line lengths and column positions are worked out from these, not stored separately.

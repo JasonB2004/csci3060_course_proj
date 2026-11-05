@@ -30,8 +30,8 @@
 
 class Session {
 public:
-    // Creates a session with nobody logged in.
-    Session();
+    // Creates a session with nobody logged in that reads and writes files through fileManager.
+    explicit Session(const FileManager& fileManager);
 
     // ---- Logging in and out ----
 

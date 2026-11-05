@@ -15,9 +15,11 @@
 #include "RefundTransaction.h"
 #include "SellTransaction.h"
 
-// Creates a Front End that reads commands from input and prints to output,
-// with every transaction ready to run. Each new transaction class is added here.
-FrontEnd::FrontEnd(std::istream& input, std::ostream& output) : console(input, output) {
+// Creates a Front End that reads commands from input, prints to output and
+// uses the files named in fileManager, with every transaction ready to run.
+// Each new transaction class is added here.
+FrontEnd::FrontEnd(std::istream& input, std::ostream& output, const FileManager& fileManager)
+    : console(input, output), session(fileManager) {
     addTransaction(std::make_unique<LoginTransaction>());
     addTransaction(std::make_unique<LogoutTransaction>());
     addTransaction(std::make_unique<CreateTransaction>());

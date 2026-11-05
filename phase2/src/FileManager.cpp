@@ -27,11 +27,17 @@ static const std::size_t GAME_PRICE_START  = GAME_SELLER_START + Config::USERNAM
 static const std::size_t OWNED_GAME_START  = 0;
 static const std::size_t OWNED_OWNER_START = OWNED_GAME_START + Config::GAME_NAME_WIDTH + 1;
 
+// Creates a file manager for the given input files and daily transaction file.
+FileManager::FileManager(const std::string& usersFile, const std::string& gamesFile,
+                         const std::string& collectionFile, const std::string& transactionFile)
+    : usersFile(usersFile), gamesFile(gamesFile),
+      collectionFile(collectionFile), transactionFile(transactionFile) {}
+
 // Reads every account from the current user accounts file, up to END.
 // Lines with an unreadable credit amount are skipped.
 std::vector<User> FileManager::readUsers() const {
     std::vector<User> users;
-    for (const std::string& line : readLinesUntilEnd(Config::USER_ACCOUNTS_FILE, Config::USERNAME_WIDTH)) {
+    for (const std::string& line : readLinesUntilEnd(usersFile, Config::USERNAME_WIDTH)) {
         std::string name = Formatter::extractField(line, USER_NAME_START, Config::USERNAME_WIDTH);
         std::string type = Formatter::extractField(line, USER_TYPE_START, Config::USER_TYPE_WIDTH);
         Cents credit = 0;
@@ -46,7 +52,7 @@ std::vector<User> FileManager::readUsers() const {
 // Lines with an unreadable price are skipped.
 std::vector<Game> FileManager::readGames() const {
     std::vector<Game> games;
-    for (const std::string& line : readLinesUntilEnd(Config::AVAILABLE_GAMES_FILE, Config::GAME_NAME_WIDTH)) {
+    for (const std::string& line : readLinesUntilEnd(gamesFile, Config::GAME_NAME_WIDTH)) {
         std::string name = Formatter::extractField(line, GAME_NAME_START, Config::GAME_NAME_WIDTH);
         std::string seller = Formatter::extractField(line, GAME_SELLER_START, Config::USERNAME_WIDTH);
         Cents price = 0;
@@ -60,7 +66,7 @@ std::vector<Game> FileManager::readGames() const {
 // Reads every ownership record from the game collection file, up to END.
 std::vector<OwnedGame> FileManager::readCollection() const {
     std::vector<OwnedGame> collection;
-    for (const std::string& line : readLinesUntilEnd(Config::GAME_COLLECTION_FILE, Config::GAME_NAME_WIDTH)) {
+    for (const std::string& line : readLinesUntilEnd(collectionFile, Config::GAME_NAME_WIDTH)) {
         std::string gameName = Formatter::extractField(line, OWNED_GAME_START, Config::GAME_NAME_WIDTH);
         std::string owner = Formatter::extractField(line, OWNED_OWNER_START, Config::USERNAME_WIDTH);
         collection.push_back(OwnedGame(gameName, owner));
@@ -71,7 +77,7 @@ std::vector<OwnedGame> FileManager::readCollection() const {
 // Adds the given lines to the end of the daily transaction file, one per line.
 // Appending means a second session in the same run adds to the file instead of replacing it.
 void FileManager::appendTransactions(const std::vector<std::string>& lines) const {
-    std::ofstream file(Config::DAILY_TRANSACTION_FILE, std::ios::app);
+    std::ofstream file(transactionFile, std::ios::app);
     for (const std::string& line : lines) {
         file << line << "\n";
     }

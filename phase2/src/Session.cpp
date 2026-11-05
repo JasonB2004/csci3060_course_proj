@@ -4,8 +4,8 @@
 
 #include "Session.h"
 
-// Creates a session with nobody logged in.
-Session::Session() : loggedIn(false) {}
+// Creates a session with nobody logged in that reads and writes files through fileManager.
+Session::Session(const FileManager& fileManager) : fileManager(fileManager), loggedIn(false) {}
 
 // Reads the input files and logs in the given user.
 // The accounts file is read first so the username can be checked; the games

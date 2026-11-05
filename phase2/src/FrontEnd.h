@@ -26,9 +26,9 @@
 
 class FrontEnd {
 public:
-    // Creates a Front End that reads commands from input and prints to output,
-    // with every transaction ready to run.
-    FrontEnd(std::istream& input, std::ostream& output);
+    // Creates a Front End that reads commands from input, prints to output and
+    // uses the files named in fileManager, with every transaction ready to run.
+    FrontEnd(std::istream& input, std::ostream& output, const FileManager& fileManager);
 
     // Reads and processes commands until the input runs out.
     void run();
