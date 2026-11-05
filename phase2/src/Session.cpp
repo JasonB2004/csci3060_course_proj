@@ -95,6 +95,18 @@ const std::vector<Game>& Session::getGames() const {
     return games;
 }
 
+// Returns every game for sale except the ones listed this session, which
+// can't be bought until the next session.
+std::vector<Game> Session::getGamesForSale() const {
+    std::vector<Game> forSale;
+    for (const Game& game : games) {
+        if (!game.isListedThisSession()) {
+            forSale.push_back(game);
+        }
+    }
+    return forSale;
+}
+
 // Adds a game put up for sale.
 void Session::addGame(const Game& game) {
     games.push_back(game);

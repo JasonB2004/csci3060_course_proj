@@ -2,7 +2,7 @@
 //
 // Front End for the Digital Games Distribution System (CSCI 3060U).
 // A point-of-purchase terminal: reads transactions (login, logout, create,
-// delete, sell, buy, refund, addcredit, list, listaccounts) one line at a
+// delete, sell, buy, refund, addcredit, list, listaccounts, search) one line at a
 // time from standard input and prints prompts and results to standard output.
 //
 // The four files are given on the command line, in this order:

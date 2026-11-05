@@ -13,6 +13,7 @@
 #include "LoginTransaction.h"
 #include "LogoutTransaction.h"
 #include "RefundTransaction.h"
+#include "SearchTransaction.h"
 #include "SellTransaction.h"
 
 // Creates a Front End that reads commands from input, prints to output and
@@ -30,6 +31,7 @@ FrontEnd::FrontEnd(std::istream& input, std::ostream& output, const FileManager&
     addTransaction(std::make_unique<AddCreditTransaction>());
     addTransaction(std::make_unique<ListGamesTransaction>());
     addTransaction(std::make_unique<ListAccountsTransaction>());
+    addTransaction(std::make_unique<SearchTransaction>());
 }
 
 // Reads and processes commands until the input runs out.

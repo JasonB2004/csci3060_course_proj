@@ -74,5 +74,6 @@ namespace Config {
     const std::string COMMAND_ADD_CREDIT    = "addcredit";
     const std::string COMMAND_LIST_GAMES    = "list";
     const std::string COMMAND_LIST_ACCOUNTS = "listaccounts";  // placeholder name until the client confirms one
+    const std::string COMMAND_SEARCH        = "search";        // added by the client in Phase 3
     
 }

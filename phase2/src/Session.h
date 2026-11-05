@@ -70,6 +70,10 @@ public:
     // Returns every game for sale, in file order with games listed this session last.
     const std::vector<Game>& getGames() const;
 
+    // Returns the games that can be bought right now: every game for sale except
+    // the ones listed this session (used by list and search).
+    std::vector<Game> getGamesForSale() const;
+
     // Adds a game put up for sale (made by sell).
     void addGame(const Game& game);
 

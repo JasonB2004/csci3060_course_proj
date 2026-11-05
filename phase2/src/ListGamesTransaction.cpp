@@ -17,13 +17,7 @@ std::string ListGamesTransaction::getName() const {
 // Prints every game that can be bought, as "name - seller - price", or a
 // message if there are none.
 void ListGamesTransaction::execute(Session& session, Console& console) {
-    std::vector<Game> available;
-    for (const Game& game : session.getGames()) {
-        if (!game.isListedThisSession()) {
-            available.push_back(game);
-        }
-    }
-
+    std::vector<Game> available = session.getGamesForSale();
     if (available.empty()) {
         console.print("No games for sale.");
         return;
