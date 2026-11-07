@@ -153,5 +153,6 @@ void Session::clear() {
     users.clear();
     games.clear();
     collection.clear();
+    creditAddedThisSession.clear();
     pendingTransactions.clear();
 }
