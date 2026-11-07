@@ -6,7 +6,7 @@ Team: Group 35 — Jason Badwal, Emma Zhu
 |---|---|---|
 | 1. Front End Requirements (tests) | Oct 2 | `phase1/` |
 | 2. Front End Rapid Prototype | Oct 19 | `phase2/` |
-| 3. Front End Requirements Testing | Nov 6 | `phase3/` |
+| 3. Front End Requirements Testing | Nov 7 | `phase3/` |
 | 4. Back End Rapid Prototype | Nov 20 | |
 | 5. Back End Unit Testing | Nov 30 | |
 | 6. Integration and Delivery | Dec 7 | |
@@ -32,7 +32,7 @@ Team: Group 35 — Jason Badwal, Emma Zhu
 - `phase3/tests/expected/<test>.out` / `<test>.etf` — expected terminal output / daily transaction file
 - `phase3/tests/data/` — starting files for every test (`data/search/` for the search tests)
 - `phase3/outputs/<date>_<time>/` — actual outputs, `report.txt` and `failures.txt` for each run
-- `phase3/docs/phase3_report.md` — failure log and instructions
+- `phase3/docs/phase3_report.md` — failure log and instructions (PDF version alongside), plus `genai_disclosure.md`
 
 ## Building and running the Front End
 ```bash
