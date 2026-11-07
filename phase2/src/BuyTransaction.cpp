@@ -28,11 +28,6 @@ void BuyTransaction::execute(Session& session, Console& console) {
         console.printError("game does not exist.");
         return;
     }
-    // Spec: a game put up for sale can't be traded until the next session
-    if (game->isListedThisSession()) {
-        console.printError("game not available until next session.");
-        return;
-    }
 
     User* seller = readExistingUser(session, console, "Enter seller username:");
     if (seller == nullptr) {
