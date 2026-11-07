@@ -37,8 +37,8 @@ std::string Formatter::extractField(const std::string& line, std::size_t start, 
 std::string Formatter::formatMoney(Cents cents, std::size_t width) {
     std::string dollars = std::to_string(cents / 100);
     std::string centsPart = std::to_string(cents % 100);
-    if (cents % 100 == 0) {
-        centsPart = "00";
+    if (centsPart.size() < 2) {
+        centsPart = "0" + centsPart;
     }
 
     std::string money = dollars + "." + centsPart;

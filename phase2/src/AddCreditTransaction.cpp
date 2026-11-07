@@ -36,7 +36,7 @@ void AddCreditTransaction::execute(Session& session, Console& console) {
 
     // The $1000 limit is per account, per session, and applies to admins too
     Cents alreadyAdded = session.getCreditAddedThisSession(account->getName());
-    if (alreadyAdded + amount >= Config::MAX_CREDIT_PER_SESSION) {
+    if (alreadyAdded + amount > Config::MAX_CREDIT_PER_SESSION) {
         console.printError("session credit limit exceeded.");
         return;
     }
