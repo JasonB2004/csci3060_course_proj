@@ -1,0 +1,5 @@
+admin01         AA 000500.00
+manager01       AM 000100.00
+seller01        SS 000029.99
+newbie          BS 000080.01
+END                         

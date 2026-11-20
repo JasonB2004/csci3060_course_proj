@@ -1,0 +1,5 @@
+admin01         AA 000500.00
+manager01       AM 000100.00
+fulluser        FS 000050.00
+seller01        SS 000020.00
+END                         
