@@ -2,4 +2,6 @@ phase2/build/
 phase2/frontend
 phase2/docs/export_genai_log.py
 phase3/docs/export_genai_log.py
-canvas_submission/
+submission/
+phase4/docs/export_genai_log.py
+__pycache__/
